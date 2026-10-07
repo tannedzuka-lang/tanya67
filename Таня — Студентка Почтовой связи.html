@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)file:///C:/Users/sapr/Downloads/deepseek_html_20261006_fad1b6.html -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таня — Студентка Почтовой связи</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #667eea 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #333;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 750px;
+            width: 100%;
+            overflow: hidden;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #fff;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::after {
+            content: '✉️';
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 2.5rem;
+            opacity: 0.3;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #fff;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: #1e3c72;
+            font-weight: bold;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .header p {
+            font-size: 1.05rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 35px 40px;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section h2 {
+            font-size: 1.2rem;
+            color: #1e3c72;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #eef1f8;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section p {
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .skill {
+            background: #eef1f8;
+            color: #1e3c72;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            background: #1e3c72;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* === БЛОК: ПУШИНА — КОТ === */
+        .cat-block {
+            background: linear-gradient(135deg, #fff5e6, #ffe0b2, #ffcc80);
+            border-radius: 18px;
+            padding: 25px 20px;
+            text-align: center;
+            margin-top: 15px;
+            box-shadow: 0 15px 35px rgba(255, 152, 0, 0.25);
+            position: relative;
+            overflow: hidden;
+            border: 3px dashed #ffb74d;
+        }
+
+        .cat-block::before {
+            content: '🐾';
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-size: 1.5rem;
+            opacity: 0.4;
+        }
+
+        .cat-block::after {
+            content: '🐾';
+            position: absolute;
+            bottom: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            opacity: 0.4;
+        }
+
+        .cat-block h3 {
+            font-size: 1.5rem;
+            color: #e65100;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .cat-block .cat-desc {
+            font-size: 0.95rem;
+            color: #8d6e63;
+            margin-bottom: 18px;
+        }
+
+        /* Галерея с фотками */
+        .cat-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .cat-photo {
+            aspect-ratio: 1 / 1;
+            border-radius: 15px;
+            overflow: hidden;
+            background: #fff;
+            border: 3px solid #fff;
+            box-shadow: 0 6px 18px rgba(230, 81, 0, 0.2);
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cat-photo:hover {
+            transform: scale(1.05) rotate(-2deg);
+            box-shadow: 0 12px 28px rgba(230, 81, 0, 0.35);
+        }
+
+        .cat-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Заглушка, если фото ещё нет */
+        .cat-photo .placeholder {
+            font-size: 3rem;
+            color: #ffb74d;
+            background: linear-gradient(135deg, #fff8e1, #ffe0b2);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* === БЛОК: АСЯ === */
+        .asya-highlight {
+            background: linear-gradient(135deg, #ff6b9d, #c44569, #f78fb3);
+            border-radius: 18px;
+            padding: 25px 20px;
+            text-align: center;
+            color: #fff;
+            margin-top: 15px;
+            box-shadow: 0 15px 35px rgba(196, 69, 105, 0.35);
+            position: relative;
+            overflow: hidden;
+            animation: pulse 3s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 15px 35px rgba(196, 69, 105, 0.35); }
+            50% { box-shadow: 0 15px 45px rgba(196, 69, 105, 0.6); }
+        }
+
+        .asya-highlight::before {
+            content: '💖';
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-size: 1.5rem;
+            opacity: 0.5;
+        }
+
+        .asya-highlight::after {
+            content: '💖';
+            position: absolute;
+            bottom: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            opacity: 0.5;
+        }
+
+        .asya-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: #fff;
+            color: #c44569;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 0 auto 15px;
+            border: 4px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .asya-highlight h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .asya-highlight p {
+            font-size: 1rem;
+            opacity: 0.95;
+            color: #fff;
+        }
+
+        /* === БЛОК: команда === */
+        .team {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .team-member {
+            background: linear-gradient(135deg, #f7f9fc, #eef1f8);
+            border-radius: 15px;
+            padding: 20px 12px;
+            text-align: center;
+            transition: 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            border-color: #2a5298;
+            box-shadow: 0 10px 25px rgba(30, 60, 114, 0.15);
+        }
+
+        .team-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1e3c72, #667eea);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 0 auto 12px;
+            box-shadow: 0 5px 15px rgba(30, 60, 114, 0.25);
+        }
+
+        .team-member h3 {
+            color: #1e3c72;
+            font-size: 1rem;
+            margin-bottom: 5px;
+            word-wrap: break-word;
+        }
+
+        .team-member p {
+            font-size: 0.8rem;
+            color: #777;
+            line-height: 1.4;
+        }
+
+        .team-member.owner {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            border-color: #667eea;
+        }
+
+        .team-member.owner h3 { color: #fff; }
+        .team-member.owner p { color: rgba(255, 255, 255, 0.85); }
+        .team-member.owner .team-avatar {
+            background: #fff;
+            color: #1e3c72;
+        }
+
+        .team-member.cat {
+            background: linear-gradient(135deg, #fff5e6, #ffe0b2);
+            border-color: #ffb74d;
+        }
+
+        .team-member.cat .team-avatar {
+            background: linear-gradient(135deg, #ff9800, #ffb74d);
+        }
+
+        .contacts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(30, 60, 114, 0.3);
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(30, 60, 114, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #f7f9fc;
+            color: #888;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 500px) {
+            .header h1 { font-size: 1.7rem; }
+            .content { padding: 25px 22px; }
+            .avatar { width: 90px; height: 90px; font-size: 2.5rem; }
+            .team { grid-template-columns: repeat(2, 1fr); }
+            .asya-highlight h3 { font-size: 1.2rem; }
+            .cat-block h3 { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="header">
+            <div class="avatar">Т</div>
+            <h1>Таня</h1>
+            <p>Студентка колледжа • Отделение «Почтовая связь»</p>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2>👋 Обо мне</h2>
+                <p>
+                    Привет! Меня зовут Таня. Я учусь в колледже на специальности 
+                    «Почтовая связь». Мне интересна сфера почтовых услуг, 
+                    логистика и работа с клиентами. Каждый день узнаю что-то 
+                    новое о том, как работает почтовая система изнутри.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>🎓 Что я изучаю</h2>
+                <div class="skills">
+                    <span class="skill">Почтовые услуги</span>
+                    <span class="skill">Документооборот</span>
+                    <span class="skill">Логистика</span>
+                    <span class="skill">Работа с клиентами</span>
+                    <span class="skill">Кассовые операции</span>
+                    <span class="skill">Почтовая документация</span>
+                </div>
+            </div>
+
+            <!-- БЛОК ПРО КОТА ПУШИНУ -->
+            <div class="section">
+                <h2>🐱 Мой кот Пушина</h2>
+                <div class="cat-block">
+                    <h3>🐾 Пушина 🐾</h3>
+                    <p class="cat-desc">Самый пушистый, самый лучший кот на свете!</p>
+
+                    <div class="cat-gallery">
+                        <!-- ФОТО 1 -->
+                        <div class="cat-photo"><div class="placeholder">🐱</div></div>
+                        <!-- ФОТО 2 -->
+                        <div class="cat-photo"><div class="placeholder">🐾</div></div>
+                        <!-- ФОТО 3 -->
+                        <div class="cat-photo"><div class="placeholder">😺</div></div>
+                        <!-- ФОТО 4 -->
+                        <div class="cat-photo"><div class="placeholder">😻</div></div>
+                    </div>
+
+                    <p class="cat-desc" style="margin-top:15px; margin-bottom:0;">
+                        Любит спать, кушать и мурлыкать 💛
+                    </p>
+                </div>
+            </div>
+
+            <!-- БЛОК АСИ -->
+            <div class="section">
+                <h2>💖 Особенный человек</h2>
+                <div class="asya-highlight">
+                    <div class="asya-avatar">А</div>
+                    <h3>Ася Кашанероа</h3>
+                    <p>Самый лучший человек в моей жизни 💕</p>
+                </div>
+            </div>
+
+            <!-- КОМАНДА -->
+            <div class="section">
+                <h2>👭 Моя команда</h2>
+                <p>Вместе учимся, вместе сдаём сессии и поддерживаем друг друга:</p>
+                <div class="team">
+                    <div class="team-member owner">
+                        <div class="team-avatar">Т</div>
+                        <h3>Таня</h3>
+                        <p>Почтовая связь</p>
+                    </div>
+                    <div class="team-member cat">
+                        <div class="team-avatar">🐱</div>
+                        <h3>Пушина</h3>
+                        <p>Кот-талисман</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-avatar">К</div>
+                        <h3>Килуа</h3>
+                        <p>Почтовая связь</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-avatar">А</div>
+                        <h3>Аркаша</h3>
+                        <p>Почтовая связь</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-avatar">Т</div>
+                        <h3>Татьяна</h3>
+                        <p>Почтовая связь</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-avatar">К</div>
+                        <h3>Кимпиносик</h3>
+                        <p>Почтовая связь</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-avatar">Л</div>
+                        <h3>Левешка</h3>
+                        <p>Почтовая связь</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>💌 Мои цели</h2>
+                <p>
+                    Хочу стать хорошим специалистом в области почтовой связи, 
+                    получить практический опыт и в будущем работать в сфере 
+                    обслуживания и логистики.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>📬 Связаться со мной</h2>
+                <div class="contacts">
+                    <a href="mailto:tanya@example.com" class="contact-btn">📧 Email</a>
+                    <a href="tel:+70000000000" class="contact-btn">📱 Телефон</a>
+                    <a href="https://t.me/" target="_blank" class="contact-btn">💬 Telegram</a>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            © 2025 Таня и её команда ✉️ • Пушина 🐱 и Ася 💖 всегда рядом
+        </footer>
+    </div>
+
+</body></html>
